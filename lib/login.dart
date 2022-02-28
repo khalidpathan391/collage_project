@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'Second.dart';
 import 'Signup.dart';
 
 class Loginscreen extends StatefulWidget {
@@ -160,7 +161,10 @@ class _LoginscreenState extends State<Loginscreen> {
               height: 20,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Second()));
+              },
               child: Center(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),

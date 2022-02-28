@@ -13,7 +13,7 @@ class Logo extends StatefulWidget {
 class _LogoState extends State<Logo> {
   @override
   initState() {
-    Future.delayed(Duration(seconds: 7), () {
+    Future.delayed(Duration(seconds: 4), () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Loginscreen()));
     });
@@ -31,7 +31,7 @@ class _LogoState extends State<Logo> {
             ),
             AnimatedTextKit(
               animatedTexts: [
-                TyperAnimatedText('SeRViCE  HuB',
+                TyperAnimatedText('SERVICE  HUB',
                     textStyle:
                         TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
                 // TyperAnimatedText('HuB',

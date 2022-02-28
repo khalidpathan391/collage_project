@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
+import 'Second.dart';
+
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
 
@@ -43,7 +45,7 @@ class _SignupState extends State<Signup> {
                         children: [
                           AnimatedTextKit(
                             animatedTexts: [
-                              TyperAnimatedText('ReGisTeR HeRe',
+                              TyperAnimatedText('REGISTER HERE',
                                   textStyle: TextStyle(
                                       fontSize: 30,
                                       fontWeight: FontWeight.bold)),
@@ -147,7 +149,10 @@ class _SignupState extends State<Signup> {
               height: 40,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Second()));
+              },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 10),
                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
