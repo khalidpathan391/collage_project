@@ -27,7 +27,7 @@ class _SignupState extends State<Signup> {
       // appBar: AppBar(
       //   title: Text("Signup"),
       // ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 221, 245, 219),
       body: Container(
         child: ListView(
           children: [
@@ -157,7 +157,7 @@ class _SignupState extends State<Signup> {
                 margin: EdgeInsets.symmetric(horizontal: 10),
                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 185, 210, 240),
+                  color: Color.fromARGB(255, 116, 236, 156),
                   border: Border.all(color: Color.fromARGB(255, 76, 91, 175)),
                   borderRadius: BorderRadius.circular(10),
                 ),
