@@ -27,7 +27,7 @@ class _SignupState extends State<Signup> {
       // appBar: AppBar(
       //   title: Text("Signup"),
       // ),
-      backgroundColor: Color.fromARGB(255, 221, 245, 219),
+      backgroundColor: Colors.white,
       body: Container(
         child: ListView(
           children: [
@@ -47,6 +47,7 @@ class _SignupState extends State<Signup> {
                             animatedTexts: [
                               TyperAnimatedText('REGISTER HERE',
                                   textStyle: TextStyle(
+                                      color: Colors.black,
                                       fontSize: 30,
                                       fontWeight: FontWeight.bold)),
                             ],
@@ -60,8 +61,6 @@ class _SignupState extends State<Signup> {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration:
-                  BoxDecoration(border: buildBottomBorder(Colors.black)),
               child: BuildTextField(namectrl, "Name"),
             ),
             SizedBox(
@@ -69,8 +68,6 @@ class _SignupState extends State<Signup> {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration:
-                  BoxDecoration(border: buildBottomBorder(Colors.black)),
               child: BuildTextField(emailctrl, "E_Mail"),
             ),
             SizedBox(
@@ -78,8 +75,6 @@ class _SignupState extends State<Signup> {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration:
-                  BoxDecoration(border: buildBottomBorder(Colors.black)),
               child: BuildTextField(passctrl, "Passaord"),
             ),
             SizedBox(
@@ -87,8 +82,6 @@ class _SignupState extends State<Signup> {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration:
-                  BoxDecoration(border: buildBottomBorder(Colors.black)),
               child: BuildTextField(repassctrl, "Conform_Password"),
             ),
             SizedBox(
@@ -96,8 +89,6 @@ class _SignupState extends State<Signup> {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration:
-                  BoxDecoration(border: buildBottomBorder(Colors.black)),
               child: BuildTextField(phnctrl, "Phone_Number"),
             ),
             SizedBox(
@@ -106,20 +97,26 @@ class _SignupState extends State<Signup> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration:
-                  BoxDecoration(border: buildBottomBorder(Colors.black)),
+                  BoxDecoration(border: buildBottomBorder(Colors.orange)),
               child: DropdownButton(
                   onChanged: (value) {
                     setState(() {
                       gender = value as String;
                     });
                   },
-                  hint: Text("Gender"),
+                  hint: Text(
+                    "Gender",
+                    style: TextStyle(color: Colors.teal),
+                  ),
                   underline: Text(""),
                   isExpanded: true,
                   value: gender,
                   items: genderList.map<DropdownMenuItem<String>>((e) {
                     return DropdownMenuItem<String>(
-                      child: Text(e),
+                      child: Text(
+                        e,
+                        style: TextStyle(color: Colors.teal),
+                      ),
                       value: e,
                     );
                   }).toList()),
@@ -127,20 +124,26 @@ class _SignupState extends State<Signup> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration:
-                  BoxDecoration(border: buildBottomBorder(Colors.black)),
+                  BoxDecoration(border: buildBottomBorder(Colors.orange)),
               child: DropdownButton(
                   onChanged: (value) {
                     setState(() {
                       gender = value as String;
                     });
                   },
-                  hint: Text("City"),
+                  hint: Text(
+                    "City",
+                    style: TextStyle(color: Colors.teal),
+                  ),
                   underline: Text(""),
                   isExpanded: true,
                   value: city,
                   items: cityList.map<DropdownMenuItem<String>>((e) {
                     return DropdownMenuItem<String>(
-                      child: Text(e),
+                      child: Text(
+                        e,
+                        style: TextStyle(color: Colors.teal),
+                      ),
                       value: e,
                     );
                   }).toList()),
@@ -153,22 +156,34 @@ class _SignupState extends State<Signup> {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Second()));
               },
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10),
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 116, 236, 156),
-                  border: Border.all(color: Color.fromARGB(255, 76, 91, 175)),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Text(
-                    "Signup",
-                    style: TextStyle(
-                      fontSize: 20,
+              child: Column(
+                children: [
+                  Container(
+                    width: 120,
+                    //  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.orange),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black,
+                            offset: Offset(0, 0),
+                            blurRadius: 2,
+                          ),
+                        ]),
+                    child: Center(
+                      child: Text(
+                        "Signup",
+                        style: TextStyle(
+                          color: Colors.teal,
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
             ),
             SizedBox(
@@ -190,14 +205,17 @@ Border buildBottomBorder(var color) {
   );
 }
 
-TextField BuildTextField(TextEditingController controller, String label) {
-  return TextField(
-    controller: controller,
-    decoration: InputDecoration(
-      label: Text(label),
-      labelStyle: TextStyle(color: Colors.black),
-      focusedBorder: const UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.black),
+BuildTextField(TextEditingController controller, String label) {
+  return Container(
+    decoration: BoxDecoration(border: buildBottomBorder(Colors.orange)),
+    child: TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        label: Text(label),
+        labelStyle: TextStyle(color: Colors.teal),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.orange),
+        ),
       ),
     ),
   );

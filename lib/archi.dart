@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ThirdScreen extends StatefulWidget {
-  const ThirdScreen({Key? key}) : super(key: key);
+class Archi extends StatefulWidget {
+  const Archi({Key? key}) : super(key: key);
 
   @override
-  State<ThirdScreen> createState() => _ThirdScreenState();
+  State<Archi> createState() => _ArchiState();
 }
 
-class _ThirdScreenState extends State<ThirdScreen> {
+class _ArchiState extends State<Archi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("ThirdScreen"),
+      backgroundColor: Colors.amber,
+      body: Container(
+        child: ListView(
+          children: [],
+        ),
       ),
     );
   }

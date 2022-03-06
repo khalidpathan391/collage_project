@@ -52,28 +52,7 @@ class _LoginscreenState extends State<Loginscreen> {
                         SizedBox(
                           height: 5,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Signup()));
-                          },
-                          child: Text(
-                            "Don't Have  account?  Click Here!",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 4, 8, 226),
-                                fontSize: 15),
-                          ),
-                        ),
                         SizedBox(height: 10),
-                        Text(
-                          "Signup Here!",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -81,30 +60,48 @@ class _LoginscreenState extends State<Loginscreen> {
               ),
             ),
             Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.teal),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.teal,
+                      offset: Offset(0, 0),
+                      blurRadius: 2,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(25.0),
+                  color: Colors.white),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                padding: EdgeInsets.only(left: 10),
                 child: TextField(
                   controller: namectrl,
                   decoration: InputDecoration(
-                    fillColor: Color.fromARGB(255, 185, 210, 240),
-                    filled: true,
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter User_Name',
-                  ), //input decoration
+                      labelText: 'Enter User_Name', border: InputBorder.none),
+                  //input decoration
                 ), //textfield
               ),
             ),
             Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.teal),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.teal,
+                      offset: Offset(0, 0),
+                      blurRadius: 2,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(25.0),
+                  color: Colors.white),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                padding: EdgeInsets.only(left: 10),
                 child: TextField(
-                  controller: pasctrl,
+                  controller: namectrl,
                   decoration: InputDecoration(
-                    fillColor: Color.fromARGB(255, 193, 218, 248),
-                    filled: true,
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter Password',
-                  ), //input decoration
+                      labelText: 'Enter Password', border: InputBorder.none),
+                  //input decoration
                 ), //textfield
               ),
             ),
@@ -113,7 +110,7 @@ class _LoginscreenState extends State<Loginscreen> {
                 Column(
                   children: [
                     Container(
-                      margin: EdgeInsets.only(left: 10),
+                      margin: EdgeInsets.only(left: 20),
                       height: 25,
                       width: 35,
                       decoration: BoxDecoration(
@@ -131,21 +128,24 @@ class _LoginscreenState extends State<Loginscreen> {
                 SizedBox(
                   width: 5,
                 ),
-                Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "Remember me",
-                        style: TextStyle(color: Colors.black),
+                Container(
+                  margin: EdgeInsets.only(left: 5),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          "Remember me",
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Column(
                   children: [
                     Container(
-                        margin: EdgeInsets.only(left: 160),
+                        margin: EdgeInsets.only(left: 130),
                         child: GestureDetector(
                           onTap: () {},
                           child: Text(
@@ -158,28 +158,59 @@ class _LoginscreenState extends State<Loginscreen> {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Signup()));
+                  },
+                  child: Text(
+                    "Don't Have  account?  Click Here!",
+                    style: TextStyle(color: Colors.blue, fontSize: 15),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 30,
             ),
             GestureDetector(
               onTap: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Second()));
               },
-              child: Center(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 185, 210, 240),
-                    border: Border.all(color: Color.fromARGB(255, 76, 91, 175)),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: 20,
+              child: Column(
+                children: [
+                  Container(
+                    width: 120,
+                    //  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.teal),
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.teal,
+                          offset: Offset(0, 0),
+                          blurRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
             ),
             SizedBox(

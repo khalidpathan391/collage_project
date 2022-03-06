@@ -1,10 +1,9 @@
 import 'package:collage_project/archi.dart';
 import 'package:collage_project/penter.dart';
 import 'package:collage_project/plumber.dart';
-import 'package:collage_project/repair.dart';
+import 'package:collage_project/cook.dart';
 import 'package:flutter/material.dart';
 
-import 'architeck.dart';
 import 'beauti.dart';
 import 'black.dart';
 import 'carp.dart';
@@ -58,10 +57,9 @@ class _SecondState extends State<Second> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                buildBox(
-                    ThirdScreen(), context, "architect.png", "Architecture"),
-                buildBox(ThirdScreen(), context, "beautician.png", "Beauticin"),
-                buildBox(ThirdScreen(), context, "black.png", "Black_Smith"),
+                buildBox(Archi(), context, "architect.png", "Architecture"),
+                buildBox(Beauti(), context, "beautician.png", "Beauticin"),
+                buildBox(Black(), context, "black.png", "Black_Smith"),
               ],
             ),
             SizedBox(
@@ -70,9 +68,9 @@ class _SecondState extends State<Second> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                buildBox(ThirdScreen(), context, "carp.png", "Carpenter"),
-                buildBox(ThirdScreen(), context, "cleaner.png", "Cleaner"),
-                buildBox(ThirdScreen(), context, "elect.png", "Electrician"),
+                buildBox(Carpenter(), context, "carp.png", "Carpenter"),
+                buildBox(Cleaner(), context, "cleaner.png", "Cleaner"),
+                buildBox(Electri(), context, "elect.png", "Electrician"),
               ],
             ),
             SizedBox(
@@ -81,10 +79,9 @@ class _SecondState extends State<Second> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                buildBox(ThirdScreen(), context, "gardener.png", "Gardener"),
-                buildBox(ThirdScreen(), context, "hardw.png", "Hardware"),
-                buildBox(
-                    ThirdScreen(), context, "Homee.png", "Home\nRepairing"),
+                buildBox(Gardener(), context, "gardener.png", "Gardener"),
+                buildBox(Hardware(), context, "hardw.png", "Hardware"),
+                buildBox(Home_Main(), context, "Homee.png", "Home\nRepairing"),
               ],
             ),
             SizedBox(
@@ -93,9 +90,9 @@ class _SecondState extends State<Second> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                buildBox(ThirdScreen(), context, "penter.png", "Painter"),
-                buildBox(ThirdScreen(), context, "plumber.png", "Plumber"),
-                buildBox(ThirdScreen(), context, "cook.png", "Cook")
+                buildBox(Penter(), context, "penter.png", "Painter"),
+                buildBox(Plumber(), context, "plumber.png", "Plumber"),
+                buildBox(Cook(), context, "cook.png", "Cook")
               ],
             ),
             SizedBox(
@@ -145,7 +142,7 @@ buildBox(var rout, BuildContext context, String img, String val) {
           ),
           Text(
             val,
-            style: TextStyle(fontSize: 15),
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ],
       ),
