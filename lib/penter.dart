@@ -11,6 +11,7 @@ class _PenterState extends State<Penter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: Container(
         child: ListView(
           children: [],

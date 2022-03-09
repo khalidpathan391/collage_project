@@ -11,6 +11,7 @@ class _BlackState extends State<Black> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.redAccent,
       body: Container(
         child: ListView(
           children: [],

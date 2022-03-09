@@ -11,6 +11,7 @@ class _CarpenterState extends State<Carpenter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlue,
       body: Container(
         child: ListView(
           children: [],

@@ -11,6 +11,7 @@ class _BeautiState extends State<Beauti> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red,
       body: Container(
         child: ListView(
           children: [],

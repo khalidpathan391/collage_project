@@ -11,6 +11,7 @@ class _CleanerState extends State<Cleaner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueAccent,
       body: Container(
         child: ListView(
           children: [],

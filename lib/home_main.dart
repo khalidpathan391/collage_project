@@ -11,6 +11,7 @@ class _Home_MainState extends State<Home_Main> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       body: Container(
         child: ListView(
           children: [],

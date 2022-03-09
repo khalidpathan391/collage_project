@@ -11,6 +11,7 @@ class _GardenerState extends State<Gardener> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.purple,
       body: Container(
         child: ListView(
           children: [],

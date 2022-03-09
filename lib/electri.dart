@@ -11,6 +11,7 @@ class _ElectriState extends State<Electri> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.cyan,
       body: Container(
         child: ListView(
           children: [],

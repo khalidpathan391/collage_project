@@ -11,6 +11,7 @@ class _HardwareState extends State<Hardware> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.green,
       body: Container(
         child: ListView(
           children: [],
