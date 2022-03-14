@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import 'Otp.dart';
 import 'login.dart';
 
 class Logo extends StatefulWidget {
@@ -14,8 +15,7 @@ class _LogoState extends State<Logo> {
   @override
   initState() {
     Future.delayed(Duration(seconds: 4), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Loginscreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Otp()));
     });
   }
 

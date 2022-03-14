@@ -187,7 +187,6 @@ class _LoginscreenState extends State<Loginscreen> {
                 children: [
                   Container(
                     width: 120,
-                    //  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                     decoration: BoxDecoration(
                       color: Colors.white,
