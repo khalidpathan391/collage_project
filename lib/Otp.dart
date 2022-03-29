@@ -29,7 +29,7 @@ class _OtpState extends State<Otp> {
               height: 250,
               width: 250,
               padding: EdgeInsets.all(20),
-              child: Image.asset("assets/images/iconn.png")),
+              child: Image.asset("assets/images/Icon.png")),
           SizedBox(
             height: 10,
           ),
@@ -64,7 +64,9 @@ class _OtpState extends State<Otp> {
                         ]),
                     child: TextField(
                       style: TextStyle(
-                          color: Color.fromARGB(255, 7, 60, 236), fontSize: 34),
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(125, 0, 0, 0),
+                          fontSize: 34),
                       controller: mobilectrl,
                       keyboardType: TextInputType.phone,
                       maxLength: 10,

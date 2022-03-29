@@ -31,7 +31,7 @@ class _VerifyState extends State<Verify> {
               height: 70,
             ),
             Image.asset(
-              "assets/images/lockk.png",
+              "assets/images/abc.png",
               width: 150,
               height: 150,
             ),

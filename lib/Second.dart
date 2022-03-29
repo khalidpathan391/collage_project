@@ -43,9 +43,9 @@ class _SecondState extends State<Second> {
                     ),
                     child: Column(
                       children: [
-                        Image.network(
-                            'https://echogarden.000webhostapp.com/E_COM_ONLINE_BARGAINING/' +
-                                value.pic.toString().trim()),
+                        // Image.network(
+                        //     'https://echogarden.000webhostapp.com/E_COM_ONLINE_BARGAINING/' +
+                        //         value.pic.toString().trim()),
                         Text(value.name)
                       ],
                     ),

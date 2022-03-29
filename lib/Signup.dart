@@ -27,7 +27,7 @@ class _SignupState extends State<Signup> {
       // appBar: AppBar(
       //   title: Text("Signup"),
       // ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.teal.shade100,
       body: Container(
         child: ListView(
           children: [
