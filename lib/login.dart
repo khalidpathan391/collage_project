@@ -180,8 +180,8 @@ class _LoginscreenState extends State<Loginscreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Second()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Category()));
               },
               child: Column(
                 children: [

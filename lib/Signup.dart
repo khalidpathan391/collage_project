@@ -153,8 +153,8 @@ class _SignupState extends State<Signup> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Second()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Category()));
               },
               child: Column(
                 children: [

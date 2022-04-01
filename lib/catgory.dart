@@ -1,4 +1,4 @@
 class BaseCategory {
-  String id, name, pic, activestatus;
-  BaseCategory(this.id, this.name, this.pic, this.activestatus);
+  String id, catgory_name, pic;
+  BaseCategory(this.id, this.catgory_name, this.pic);
 }
