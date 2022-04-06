@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:collage_project/widgitbuild.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_entry_text_field/pin_entry_text_field.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Otp.dart';
 
@@ -98,10 +100,12 @@ class _VerifyState extends State<Verify> {
                     GestureDetector(
                       onTap: () {
                         log("CONTINUE BUTTON PRESS");
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Loginscreen()));
+                        verifyOTP();
+
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => Loginscreen()));
                       },
                       child: Container(
                         padding:
@@ -125,5 +129,23 @@ class _VerifyState extends State<Verify> {
         )
       ]),
     );
+  }
+
+  void verifyOTP() async {
+    // print("verify with" + smsOtp);
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: widget.Verifyid, smsCode: smsOtp);
+    try {
+      final User? user =
+          (await FirebaseAuth.instance.signInWithCredential(credential)).user;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('login', true);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Category()));
+
+      // showSnackBar("Verified Successfully", context);
+    } catch (error) {
+      log(error.toString());
+    }
   }
 }

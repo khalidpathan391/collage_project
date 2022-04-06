@@ -5,6 +5,7 @@ import 'package:collage_project/widgitbuild.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'Second.dart';
 
 class Otp extends StatefulWidget {
@@ -161,7 +162,9 @@ class _OtpState extends State<Otp> {
     auth.verifyPhoneNumber(
         phoneNumber: "+91" + mobilectrl.text,
         verificationCompleted: (cred) {
-          setState(() {
+          setState(() async {
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            prefs.setBool('login', true);
             isLoading = !isLoading;
           });
           log("complete");

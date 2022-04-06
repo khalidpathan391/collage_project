@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:collage_project/plumber.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -134,31 +135,41 @@ class _CategoryState extends State<Category> {
               mainAxisSpacing: 20,
               crossAxisCount: 3,
               children: p.map((value) {
-                return Container(
-                  padding: EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 8.0,
-                          offset: Offset(5, 5))
-                    ],
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: Column(
-                    children: [
-                      Image.network(
-                        'https://khancollege.000webhostapp.com/service_hub/' +
-                            value.pic.toString().trim(),
-                        height: 80,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                SubCategory(value.catgory_name)));
+                    log(value.catgory_name);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black,
+                            blurRadius: 8.0,
+                            offset: Offset(5, 5))
+                      ],
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
                       ),
-                      Text(value.catgory_name)
-                    ],
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.network(
+                          'https://khancollege.000webhostapp.com/service_hub/' +
+                              value.pic.toString().trim(),
+                          height: 80,
+                        ),
+                        Text(value.catgory_name)
+                      ],
+                    ),
                   ),
                 );
               }).toList(),
@@ -169,3 +180,41 @@ class _CategoryState extends State<Category> {
     );
   }
 }
+// Future<void> showExitDialog(
+//     String msg, String detail, BuildContext context) async {
+//   return showDialog<void>(
+//     context: context,
+//     barrierDismissible: false, // user must tap button!
+//     builder: (BuildContext context) {
+//       return AlertDialog(
+//         title: Text(msg),
+//         content: Text(detail),
+//         actions: <Widget>[
+//           TextButton(
+//             child: const Text('NO'),
+//             onPressed: () {
+//               Navigator.of(context).pop();
+//             },
+//           ),
+//           TextButton(
+//             child: const Text('Yes'),
+//             onPressed: () async {
+//               SharedPreferences preferences =
+//                   await SharedPreferences.getInstance();
+//               preferences.setBool("login", true);
+//               Navigator.of(context).pop();
+//               showSnackBar(
+//                   "Thanks for using our app\nThis app is developed by Vineet Kumar Sharma(8874327867)",
+//                   context);
+//               Timer(const Duration(seconds: 3), () {
+//                 // Navigator.of(context).pop();
+//                 // showSnackBar("after timer",context);
+//                 SystemNavigator.pop();
+//               });
+//             },
+//           ),
+//         ],
+//       );
+//     },
+//   );
+// }

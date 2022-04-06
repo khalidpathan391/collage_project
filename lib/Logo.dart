@@ -1,5 +1,7 @@
+import 'package:collage_project/Second.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Otp.dart';
 import 'login.dart';
@@ -14,8 +16,16 @@ class Logo extends StatefulWidget {
 class _LogoState extends State<Logo> {
   @override
   initState() {
-    Future.delayed(Duration(seconds: 4), () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Otp()));
+    Future.delayed(Duration(seconds: 2), () async {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      bool loginstatus = await preferences.getBool('login') ?? false;
+      if (loginstatus) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Category()));
+      } else
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Otp()));
+
+      //
     });
   }
 

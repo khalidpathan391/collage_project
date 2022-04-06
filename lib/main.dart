@@ -1,4 +1,5 @@
 import 'package:collage_project/login.dart';
+import 'package:collage_project/plumber.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ Future<void> main() async {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Logo(),
+      // home: SubCategory(),
     ),
   );
 }
