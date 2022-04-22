@@ -16,6 +16,7 @@ Future<void> main() async {
       debugShowCheckedModeBanner: false,
       home: Logo(),
       // home: SubCategory(),
+      // home: Loginscreen(),
     ),
   );
 }
@@ -24,7 +25,7 @@ Future<void> main() async {
 //     debugShowCheckedModeBanner: false,
 //     // home: Logo(),
 //     home: Otp(),
-//     //home: Loginscreen(),
+    //home: Loginscreen(),
 //     //home: Signup(),
 //     // home: Second(),
 //     // home:Archi(),

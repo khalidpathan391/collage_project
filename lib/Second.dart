@@ -1,11 +1,16 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:collage_project/Otp.dart';
 import 'package:collage_project/plumber.dart';
+import 'package:collage_project/work.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'catgory.dart';
 
@@ -17,6 +22,7 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
+  bool isSearched = false;
   List? data;
 
   _CategoryState() {
@@ -58,18 +64,42 @@ class _CategoryState extends State<Category> {
 
   @override
   Widget build(BuildContext context) {
-    //double width = MediaQuery.of(context).size.width - 40;
+    double width = MediaQuery.of(context).size.width - 40;
+
     return Scaffold(
+      drawer: Drawer(
+        child: ElevatedButton(
+            onPressed: () async {
+              log("Logout");
+              SharedPreferences preferences =
+                  await SharedPreferences.getInstance();
+              preferences.clear();
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Otp()));
+            },
+            child: const Text('Logout')),
+      ),
       backgroundColor: Colors.teal.shade100,
       appBar: AppBar(
-        leading: Icon(Icons.menu),
+        //  leading: Icon(Icons.menu),
+
         title: Text('SELECT CATEGORY'),
         actions: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(Icons.search),
-          ),
-          Icon(Icons.more_vert),
+          isSearched
+              ? Container(width: width * .7, child: TextField())
+              : SizedBox(),
+          IconButton(
+            padding: EdgeInsets.only(right: 20, left: 20),
+            icon: Icon(
+              Icons.search,
+              size: 30,
+            ),
+            onPressed: () {
+              setState(() {
+                isSearched = !isSearched;
+              });
+            },
+          )
         ],
         backgroundColor: Colors.teal,
       ),
@@ -137,12 +167,14 @@ class _CategoryState extends State<Category> {
               children: p.map((value) {
                 return GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                SubCategory(value.catgory_name)));
-                    log(value.catgory_name);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Work()));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) =>
+                    //             SubCategory(value.catgory_name)));
+                    // log(value.catgory_name);
                   },
                   child: Container(
                     padding: EdgeInsets.all(2),
@@ -180,41 +212,3 @@ class _CategoryState extends State<Category> {
     );
   }
 }
-// Future<void> showExitDialog(
-//     String msg, String detail, BuildContext context) async {
-//   return showDialog<void>(
-//     context: context,
-//     barrierDismissible: false, // user must tap button!
-//     builder: (BuildContext context) {
-//       return AlertDialog(
-//         title: Text(msg),
-//         content: Text(detail),
-//         actions: <Widget>[
-//           TextButton(
-//             child: const Text('NO'),
-//             onPressed: () {
-//               Navigator.of(context).pop();
-//             },
-//           ),
-//           TextButton(
-//             child: const Text('Yes'),
-//             onPressed: () async {
-//               SharedPreferences preferences =
-//                   await SharedPreferences.getInstance();
-//               preferences.setBool("login", true);
-//               Navigator.of(context).pop();
-//               showSnackBar(
-//                   "Thanks for using our app\nThis app is developed by Vineet Kumar Sharma(8874327867)",
-//                   context);
-//               Timer(const Duration(seconds: 3), () {
-//                 // Navigator.of(context).pop();
-//                 // showSnackBar("after timer",context);
-//                 SystemNavigator.pop();
-//               });
-//             },
-//           ),
-//         ],
-//       );
-//     },
-//   );
-// }
