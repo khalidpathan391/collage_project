@@ -168,13 +168,13 @@ class _CategoryState extends State<Category> {
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Work()));
+                        MaterialPageRoute(builder: (context) => Fetch()));
                     // Navigator.push(
                     //     context,
                     //     MaterialPageRoute(
                     //         builder: (context) =>
                     //             SubCategory(value.catgory_name)));
-                    // log(value.catgory_name);
+                    log(value.catgory_name);
                   },
                   child: Container(
                     padding: EdgeInsets.all(2),
