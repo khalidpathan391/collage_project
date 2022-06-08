@@ -35,6 +35,7 @@ class Work extends State<Fetch> {
   List<BaseProduct> p = [];
   Future<void> getdata() async {
     var prm = {};
+
     // Starting App API Call.
     var response = await http
         .post(
@@ -66,7 +67,6 @@ class Work extends State<Fetch> {
 
   Future<void> Register(BaseProduct t) async {
     var data = {
-      'vendor_id': "1000",
       'id': t.id,
       'cat_id': t.cat_id,
       'sub_cat_id': t.sub_cat_id,
@@ -89,6 +89,108 @@ class Work extends State<Fetch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // drawer: Drawer(
+        //   backgroundColor: Colors.teal,
+        //   child: ListView(
+        //     children: [
+        //       DrawerHeader(
+        //           decoration: BoxDecoration(
+        //             color: Colors.white,
+        //           ),
+        //           child: Column(
+        //             children: [
+        //               Image.asset(
+        //                 "assets/images/elect.png",
+        //                 width: 100,
+        //                 height: 100,
+        //               ),
+        //               Text(
+        //                 "CREATED BY -> Khalid",
+        //                 style: TextStyle(
+        //                     color: Colors.black,
+        //                     fontWeight: FontWeight.bold,
+        //                     fontSize: 18),
+        //               )
+        //             ],
+        //           )),
+        //       Card(
+        //         child: ListTile(
+        //           leading: Icon(Icons.messenger),
+        //           title: const Text(
+        //             'My Profile',
+        //             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        //           ),
+        //           onTap: () {
+        //             Navigator.pop(context);
+        //           },
+        //         ),
+        //       ),
+        //       Card(
+        //         child: ListTile(
+        //           leading: Icon(Icons.settings),
+        //           title: const Text(
+        //             'Setting',
+        //             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        //           ),
+        //           onTap: () {
+        //             Navigator.pop(context);
+        //           },
+        //         ),
+        //       ),
+        //       Card(
+        //         child: ListTile(
+        //           leading: Icon(Icons.message),
+        //           title: const Text(
+        //             'About Us',
+        //             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        //           ),
+        //           onTap: () {
+        //             Navigator.pop(context);
+        //           },
+        //         ),
+        //       ),
+        //       Card(
+        //         child: ListTile(
+        //           leading: Icon(Icons.help),
+        //           // leading: Icon(),
+        //           title: const Text(
+        //             'Help & Support',
+        //             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        //           ),
+        //           onTap: () {
+        //             Navigator.pop(context);
+        //           },
+        //         ),
+        //       ),
+        //       Card(
+        //         child: ListTile(
+        //           leading: Icon(Icons.privacy_tip),
+        //           // leading: Icon(),
+        //           title: const Text(
+        //             'Privacy & Security',
+        //             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        //           ),
+        //           onTap: () {
+        //             Navigator.pop(context);
+        //           },
+        //         ),
+        //       ),
+        //       SizedBox(
+        //         height: 30,
+        //       ),
+        //       Center(
+        //         child: ListTile(
+        //           title: const Text(
+        //             'Created BY - KHALID',
+        //             style: TextStyle(
+        //               fontSize: 14,
+        //             ),
+        //           ),
+        //         ),
+        //       )
+        //     ],
+        //   ),
+        // ),
         appBar: AppBar(
           leading: Icon(Icons.menu),
           title: Text(
@@ -117,21 +219,6 @@ class Work extends State<Fetch> {
                       SizedBox(
                         height: 20,
                       ),
-
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
-                      //     Container(
-                      //         width: 50,
-                      //         height: 50,
-                      //         child: Image.network(
-                      //             'https://echogarden.000webhostapp.com/E_COM_ONLINE_BARGAINING/' +
-                      //                 p[index].pic.toString().trim()))
-                      //   ],
-                      // ),
-
-                      // Row(children: [Text("PRODUCT ID :", style: TextStyle(fontWeight: FontWeight.bold),),Text(p[index].id)]),
-
                       Row(children: [
                         Text(
                           "CATEGORY_ID:",
@@ -155,7 +242,6 @@ class Work extends State<Fetch> {
                         ),
                         Text(p[index].work)
                       ]),
-
                       Row(children: [
                         Text(
                           "PRICE : ",
@@ -163,41 +249,9 @@ class Work extends State<Fetch> {
                         ),
                         Text(p[index].price)
                       ]),
-
-                      // TextFormField(
-                      //   keyboardType: TextInputType.number,
-                      //   initialValue: p[index].price,
-                      //   onChanged: (text) {
-                      //     setState(() {
-                      //       p[index].price = text;
-                      //     });
-                      //   },
-                      // ),
-
-                      // Text(p[index].mrp),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // Container(
-                          //   child: GestureDetector(
-                          //     onTap: () {
-                          //       Register(p[index]);
-                          //     },
-                          //     child: Container(
-                          //         decoration: BoxDecoration(
-                          //           color: Colors.teal,
-                          //           borderRadius: BorderRadius.circular(0),
-                          //           border: Border.all(color: Colors.teal),
-                          //         ),
-                          //         alignment: Alignment.center,
-                          //         padding: const EdgeInsets.all(8),
-                          //         child: const Text(
-                          //           'ADD TO SHOP',
-                          //           style: TextStyle(
-                          //               fontSize: 15, color: Colors.white),
-                          //         )),
-                          //   ),
-                          // ),
                           SizedBox(
                             width: 20,
                           ),
@@ -234,13 +288,7 @@ class Work extends State<Fetch> {
                           SizedBox(
                             width: 10,
                           ),
-
                           Container(
-                            // decoration: BoxDecoration(
-                            //   // color: Colors.teal,
-                            //   borderRadius: BorderRadius.circular(0),
-                            //   border: Border.all(color: Colors.teal),
-                            // ),
                             alignment: Alignment.center,
                             padding: const EdgeInsets.all(3),
                             child: Center(
@@ -356,7 +404,7 @@ class Work extends State<Fetch> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SubmitScreen()));
+                                  builder: (context) => SubmitScreen(p)));
                         },
                         child: Container(
                             decoration: BoxDecoration(
